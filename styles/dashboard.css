@@ -76,6 +76,7 @@
     color: white;
     font-size: 30px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 /* FOTO DE PERFIL Y PERFIL(OPCIONES) */
@@ -379,8 +380,28 @@
 .hidden {
     display: none !important;
 }
+
+/* Diseño Tabla */
+table {
+    background-color: #7AAACE;
+    justify-self: center;
+    text-align: center;
+    border: 1px solid #7AAACE;
+    letter-spacing: 3px;
+    table-layout: var(--fourth-color);
+    width: 100%;
+    font-size: 40px;
+}
+
+td {
+    border: 1px solid var(--primary-color);
+    border-left: 0px;
+    border-right: 0px;
+    padding: 40px;
+    font-size: 35px;
+}
+
 .focus{
     background-color: #03495a;
     border-radius: 7px;
-    
 }

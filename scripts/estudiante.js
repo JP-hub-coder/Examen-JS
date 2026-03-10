@@ -7,6 +7,10 @@ const btnCursos = document.getElementById("cursos");
 const btnCursosTotal = document.getElementById("cursos-total")
 const perfil = document.getElementById("perfil")
 
+const resumen_btn = document.getElementById("resumen-cursos")
+const tabla = document.querySelector(".table")
+
+
 document.querySelector(".perfil").addEventListener("click", function(e) {
     e.stopPropagation();// evita que el click se propage al document
     const perfil_op = document.querySelector(".perfil_op");
@@ -36,6 +40,8 @@ function verificarFocus(){
 }
 
 btnCursos.addEventListener("click", ()=>{
+    tabla.classList.add("hidden")
+    resumen_btn.classList.remove("pages-button--active")
     verificarFocus()
     btnCursos.classList+=" focus"
     document.querySelector(".cursos").classList = "cursos"
@@ -63,6 +69,8 @@ btnCursos.addEventListener("click", ()=>{
 })
 
 btnCursosTotal.addEventListener("click", ()=>{
+    tabla.classList.add("hidden")
+    resumen_btn.classList.remove("pages-button--active");
     verificarFocus();
     btnCursosTotal.classList+=" focus"
     document.querySelector(".cursos").classList = "cursos"
@@ -81,6 +89,15 @@ btnCursosTotal.addEventListener("click", ()=>{
         `
         
     }
+})
+
+resumen_btn.addEventListener("click", () => {
+    btnCursos.classList.remove("focus")
+    btnCursosTotal.classList.remove("focus")
+    const cursos = document.querySelector(".cursos")
+    resumen_btn.classList.add("pages-button--active");
+    cursos.classList.add("hidden")
+    tabla.classList.remove("hidden")
 })
 
 function Inscribirse(codigo){
@@ -140,6 +157,7 @@ function mostrarCurso(curso){
 
 function imprimirCurso(leccion){
     //Borramos el html de cualquier cosa anterior
+    tabla.classList.add("hidden")
     document.querySelector(".cursos").classList += " hidden"
     document.querySelector(".cursos-container").innerHTML=""
     document.querySelector(".curso-leccion-container").classList = "curso-leccion-container"
